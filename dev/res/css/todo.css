@@ -1,0 +1,40 @@
+.taskText{
+	
+	display: table-cell;
+	width: 600px;
+	padding: 5px;
+}
+.doneTaskText{
+	
+	display: table-cell;
+	width: 600px;
+	padding: 5px;
+	color: grey;
+	text-decoration: line-through;
+}
+.taskRow{
+	
+	font-family: verdana;
+	font-size: 14px;
+	display: table-row;
+	border-bottom:2px solid;
+	color: black;
+	background-color: white;
+	padding: 15px;
+	
+}
+.markButton{
+	
+	
+}
+
+.deleteButton{
+	
+	color:red;
+}
+
+.todoTasks{
+	
+	background-color: white;
+	width: 700px;
+}
