@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>index</title>
+		<meta name="author" content="haseeb.riaz" />
+		
+		<script language="JavaScript" src="js/Base.js"> </script>
+        <script language="JavaScript" src="js/Observable.js"> </script>
+        <script language="JavaScript" src="js/TaskViewModel.js"> </script>
+        <script language="JavaScript" src="js/TODOModel.js"> </script>
+        <script language="JavaScript" src="js/TaskView.js"> </script>
+        <script language="JavaScript" src="js/TODOView.js"> </script>
+        <script language="JavaScript" src="js/Main.js"> </script>
+
+		<style>
+			
+			body{
+				
+				background-image: url("res/images/bg.jpg");
+			}
+		</style>
+
+	</head>
+	
+	<body>
+		
+		<TODO></TODO>
+
+        <TODO></TODO>
+
+		<template id = "todoTemplate">
+		<style> @import "res/css/todo.css"; </style>
+				<content>
+				<input-row>
+					<input type ="text" id="inputBox"/>
+					<button id = "addTask">Add Task</button>
+				</input-row>
+				
+				<todo-tasks class="todoTasks"> 
+					<todo-task class="taskRow">
+						<button class="markButton">Done</button>
+						<content class="taskText">{task}</content>
+						<button class="deleteButton">Delete</button>
+					</todo-task>
+				</todo-tasks>
+                    
+                <div class="infolabel"><label >Total: </label><total-tasks></total-tasks></div>
+                <div class="infolabel"><label >Done: </label><done-tasks></done-tasks></div>
+				</content>
+		</template>
+		
+	</body>
+</html>
+
