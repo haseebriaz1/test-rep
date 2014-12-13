@@ -2,6 +2,7 @@
 exports.TODOView = (function(){
 
     //imports
+    //---
     var TaskView = exports.TaskView;
 
     function TODOView(node, model){
