@@ -1,28 +1,30 @@
 
-var TaskViewModel = require("../src/TaskViewModel").TaskViewModel,
-    TODOModel = require("../src/TODOModel").TODOModel,
+var imports = require("./todo"),
+
     expect = require("expect.js");
 
-describe("TestModelTests", function(){
+describe("TODOModel Tests", function(){
 
     var todoModel, tasks;
 
     var before = function(){
 
-        todoModel = new TODOModel();
+        todoModel = new imports.TODOModel("testTodo");
         tasks = [];
     }
 
     var after = function(){
 
+        todoModel.removeAllTasks();
         todoModel = tasks = null
+
     }
 
     var addTasks = function(total){
 
         for(var i = 0; i < total; i++){
 
-            tasks.push(new TaskViewModel("TestTask" + i, todoModel));
+            tasks.push(todoModel.addTask("TestTask" + i));
         }
 
         return 10;
@@ -86,4 +88,38 @@ describe("TestModelTests", function(){
 
         after();
     });
+
+    it("Tasks should save and retrieve from localStorate correctly", function(){
+
+        before();
+        addTasks(10);
+        markAsDone(5);
+
+        before();
+        expect(todoModel.getTotalMarkedTasks()).to.be.equal(5);
+        expect(todoModel.getTotalTasks()).to.be.equal(10);
+        after();
+
+    });
+
+    it("markAll and unMarkAll works properly", function(){
+
+        before();
+        addTasks(10);
+        markAsDone(5);
+
+        todoModel.markAll();
+
+        before();
+        expect(todoModel.getTotalMarkedTasks()).to.be.equal(10);
+        expect(todoModel.getTotalTasks()).to.be.equal(10);
+
+        todoModel.unMarkAll();
+        expect(todoModel.getTotalMarkedTasks()).to.be.equal(0);
+        expect(todoModel.getTotalTasks()).to.be.equal(10);
+        after();
+
+    });
+
+
 });

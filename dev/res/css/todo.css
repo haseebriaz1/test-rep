@@ -17,29 +17,70 @@
 	font-family: verdana;
 	font-size: 14px;
 	display: table-row;
-	border-bottom:2px solid;
+	border-bottom:1px dashed silver;
 	color: black;
 	background-color: white;
-	padding: 15px;
-	
+    height: 30px;
+
 }
 .markButton{
 	
-	
+	width: 100px;
 }
 
 .deleteButton{
 	
 	color:red;
+
 }
 
 .todoTasks{
 	
 	background-color: white;
-	width: 700px;
+	width: 820px;
+    display: table;
+    border-collapse: collapse;
+
 }
 
 .infolabel{
 
     color: white;
+    display: table-cell;
+    padding: 10px;
 }
+
+#inputBox{
+
+    width: 480px;
+    font-size: 14px;
+    font-family: verdana;
+}
+
+.inputRow{
+
+    font-size: 14px;
+    font-family: verdana;
+    background-color: silver;
+    width: 800px;
+    padding: 10px;
+}
+
+#markAll{
+
+    width: 100px;
+}
+
+.bottomRow{
+
+    display: table-row;
+}
+
+.header{
+
+    text-align: center;
+    width: 800px;
+    font-family: verdana;
+}
+
+

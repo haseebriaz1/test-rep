@@ -21,35 +21,44 @@
 				
 				background-image: url("res/images/bg.jpg");
 			}
+
+            #test1{
+
+                display: block;
+                margin:0 auto;
+            }
 		</style>
 
 	</head>
 	
 	<body>
 		
-		<TODO></TODO>
-
-        <TODO></TODO>
+		<TODO id= "test1"></TODO>
 
 		<template id = "todoTemplate">
-		<style> @import "res/css/todo.css"; </style>
-				<content>
-				<input-row>
-					<input type ="text" id="inputBox"/>
-					<button id = "addTask">Add Task</button>
-				</input-row>
-				
-				<todo-tasks class="todoTasks"> 
-					<todo-task class="taskRow">
-						<button class="markButton">Done</button>
-						<content class="taskText">{task}</content>
-						<button class="deleteButton">Delete</button>
-					</todo-task>
-				</todo-tasks>
-                    
-                <div class="infolabel"><label >Total: </label><total-tasks></total-tasks></div>
-                <div class="infolabel"><label >Done: </label><done-tasks></done-tasks></div>
-				</content>
+            <style> @import "res/css/todo.css"; </style>
+            <div class="header"> <h1>To-Do </h1></div>
+            <content>
+                <div class="inputRow">
+                    <button id = "markAll">Mark All</button>
+                    <input type ="text" id="inputBox" placeholder="New Task"/>
+                    <button id = "addTask">Add Task</button>
+                    <button id = "removeAll">Remove All</button>
+                </div>
+
+                <div class="todoTasks">
+                    <div class="taskRow">
+                        <button class="markButton">Done</button>
+                        <span class="taskText cell">{task}</span>
+                        <button class="deleteButton">Delete</button>
+                    </div>
+                </div>
+                <div class="bottomRow">
+                    <div class="infolabel"><label >Total: </label><span class="totalTasks"></span></div>
+                    <div class="infolabel"><label >Done: </label><span class="doneTasks"></span></div>
+                </div>
+
+            </content>
 		</template>
 		
 	</body>

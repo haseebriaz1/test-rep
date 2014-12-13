@@ -1,7 +1,9 @@
 
-var Observable = require("../src/Observable").Observable,
+var imports = require("../src/Observable"),
     expect = require("expect.js");
 
+var Observable = imports.Observable;
+var Notification = imports.Notification;
 
 describe("Observable Test", function(){
 
@@ -44,7 +46,7 @@ describe("Observable Test", function(){
         observable.addObserver("test", observer1);
         observable.addObserver("test", observer2);
         observable.addObserver("test", observer3);
-        observable.notify("test");
+        observable.notify(new Notification("test"));
 
         expect(counter).to.be.equal(6);
         after();
@@ -59,7 +61,7 @@ describe("Observable Test", function(){
         observable.addObserver("test", observer3);
 
         observable.removeObserver("test", observer2);
-        observable.notify("test");
+        observable.notify(new Notification("test"));
 
         expect(counter).to.be.equal(4);
         after();

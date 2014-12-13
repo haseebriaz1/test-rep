@@ -5,7 +5,8 @@ module.exports = function(grunt) {
 
         dev: "dev/",
         deploy: "/Library/WebServer/Documents/todo/",
-        build: "/Library/WebServer/Documents/todo-build/"
+        build: "/Library/WebServer/Documents/todo-build/",
+        test: "dev/tests/"
     };
 
     var files = {
@@ -18,14 +19,26 @@ module.exports = function(grunt) {
                     directories.dev + "src/TaskView.js",
                     directories.dev + "src/TODOView.js",
                     directories.dev + "src/Main.js"
-                ]
+                ],
+        testsConcat: [
+                        directories.dev + "src/Base.js",
+                        directories.test + "TestBase.js",
+                        directories.dev + "src/Observable.js",
+                        directories.dev + "src/TaskViewModel.js",
+                        directories.dev + "src/TODOModel.js"
+                   ]
     }
   grunt.initConfig({
       concat: {
-          "options": { "separator": ";" },
+          "options": { "separator": "\n" },
           "deploy": {
-              "src": files.concat,
-              "dest": directories.deploy + "js/todo.js"
+                      "src": files.concat,
+                      "dest": directories.deploy + "js/todo.js"
+                },
+          "test": {
+
+                "src": files.testsConcat,
+                "dest": directories.test + "todo.js"
           }
       },
       copy: {
@@ -71,7 +84,7 @@ module.exports = function(grunt) {
                   debounceDelay: 250
               },
               files: ['Gruntfile.js', 'dev/**/*.js'],
-              tasks: ['mochaTest']
+              tasks: ['concat', 'mochaTest']
           }
       }
   });
